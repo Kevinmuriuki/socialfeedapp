@@ -1,6 +1,8 @@
 import { Card, Row, Col } from 'react-bootstrap';
+import { Users } from '../../dummyData'
 
-export default function Post() {
+export default function Post(posts) {
+  console.log(posts)
   const style =  {
     fontWeight: 500,
     fontSize: '.8em'
@@ -28,14 +30,16 @@ export default function Post() {
     objectFit: 'cover',
   }
 
+  const user = Users.filter(u => u.id === posts.post.userId)[0];
+
   return (
     <>
       <Card className="shadow mb-5">
         <Row className="mx-2 mt-4">
           <Col className="d-flex align-items-center">
-            <Card.Img style={pointer} className="rounded-circle" src="/statics/person/1.jpeg" style={imgStyle}/>
-            <span className="ml-2" style={style}>Kevin Muriuki</span>
-            <span className="ml-2" style={small}>5 mins ago</span>
+            <Card.Img style={pointer} className="rounded-circle" src={user.profilePicture} style={imgStyle}/>
+            <span className="ml-2" style={style}>{user.username}</span>
+            <span className="ml-2" style={small}>{posts.post.date}</span>
           </Col>
           <Col className="d-flex justify-content-end align-items-center">
             <span style={pointer}>
@@ -44,17 +48,17 @@ export default function Post() {
           </Col>
         </Row>
         <Card.Body>
-          <Card.Text>This is my first Post!</Card.Text>
-          <Card.Img className="img-fluid" src="/statics/post/1.jpeg" style={coverImg}/>
+          <Card.Text>{posts.post?.desc}</Card.Text>
+          <Card.Img className="img-fluid" src={posts.post.photo} style={coverImg}/>
           <Row className="mx-2 mt-4">
             <Col className="d-flex align-items-center">
               <Card.Img className="rounded-circle mr-2" src="/statics/like.png" style={imgStyle}/>
               <Card.Img className="rounded-circle" src="/statics/heart.png" style={imgStyle}/>
               <div>
-                <span className="ml-2" style={small}>9 people liked it</span>
+                <span className="ml-2" style={small}><span>{posts.post.like}</span> people liked it</span>
               </div>
             </Col>
-            <Col className="d-flex justify-content-end align-items-center"  style={pointer}>9 comments</Col>
+            <Col className="d-flex justify-content-end align-items-center"  style={pointer}><span>{posts.post.comment}</span> comments</Col>
           </Row>
         </Card.Body>
       </Card>
