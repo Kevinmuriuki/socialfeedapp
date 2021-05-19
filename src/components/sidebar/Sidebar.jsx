@@ -1,4 +1,3 @@
-import './Sidebar.css'
 import { Button } from 'react-bootstrap';
 
 export default function Sidebar() {

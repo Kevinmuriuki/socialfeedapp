@@ -1,9 +1,9 @@
-import './Feed.css'
+import Share from '../share/Share'
 
 export default function Feed() {
   return (
     <div className="col-5">
-      Feeds
+      <Share />
     </div>
   )
 }
