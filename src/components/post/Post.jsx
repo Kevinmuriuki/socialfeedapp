@@ -45,7 +45,7 @@ export default function Post() {
         </Row>
         <Card.Body>
           <Card.Text>This is my first Post!</Card.Text>
-          <Card.Img className="img-fluid" src="/statics/person/1.jpeg" style={coverImg}/>
+          <Card.Img className="img-fluid" src="/statics/post/1.jpeg" style={coverImg}/>
           <Row className="mx-2 mt-4">
             <Col className="d-flex align-items-center">
               <Card.Img className="rounded-circle mr-2" src="/statics/like.png" style={imgStyle}/>

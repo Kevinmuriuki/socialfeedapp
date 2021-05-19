@@ -1,13 +1,16 @@
+import { Col } from 'react-bootstrap'
 import Post from '../post/Post'
 import Share from '../share/Share'
+import { Posts } from '../../dummyData'
 
 export default function Feed() {
   return (
-    <div className="col-5">
+    <Col sm={8}>
       <Share />
-      <Post />
-      <Post />
-      <Post />
-    </div>
+      {Posts.map((p) => (
+        <Post key={p.id} post={p} />
+      ))}
+      
+    </Col>
   )
 }
