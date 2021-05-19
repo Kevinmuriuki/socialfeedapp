@@ -7,8 +7,12 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import { Container, Row } from 'react-bootstrap';
 
 export default function Home() {
+  const style = {
+    margin: "0 auto",
+    width: '100%',
+  }
   return (
-    <div>
+    <div style={style}>
       <Navbar />
       <Row>
         <Sidebar />
