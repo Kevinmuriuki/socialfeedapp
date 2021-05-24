@@ -2,7 +2,6 @@ import { Card, Row, Col } from 'react-bootstrap';
 import { Users } from '../../dummyData'
 
 export default function Post(posts) {
-  console.log(posts)
   const style =  {
     fontWeight: 500,
     fontSize: '.8em'

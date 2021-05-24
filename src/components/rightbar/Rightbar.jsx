@@ -1,4 +1,6 @@
 import { Row, Col, Card, Container } from 'react-bootstrap';
+import Online from '../online/Online';
+import { Users } from '../../dummyData'
 
 export default function Rightbar() {
   const giftImg = {
@@ -6,13 +8,6 @@ export default function Rightbar() {
     height: '40px',
     margin: '0',
     padding: '0'
-  }
-
-  const rightbarOnline = {
-    width: '12px',
-    height: '12px',
-    top: '-2px',
-    right: 0,
   }
 
   return (
@@ -32,33 +27,9 @@ export default function Rightbar() {
       </Card>
       <Container>
         <h4>Online Friends</h4>
-        <Row className="mb-4">
-            <div className="position-relative">
-              <img className="img-fluid ml-2  rounded-circle " src="/statics/person/1.jpeg" alt="" style={giftImg}/>
-              <span className="bg-success rounded-circle position-absolute" style={rightbarOnline}></span>
-            </div>
-            <Col md={10}>
-              <span style={{ fontWeight: 500 }}>Ann Doe</span>
-            </Col>
-          </Row>
-          <Row className="mb-4">
-            <div className="position-relative">
-              <img className="img-fluid ml-2  rounded-circle " src="/statics/person/3.jpeg" alt="" style={giftImg}/>
-              <span className="bg-success rounded-circle position-absolute" style={rightbarOnline}></span>
-            </div>
-            <Col md={10}>
-              <span style={{ fontWeight: 500 }}>Ann Doe</span>
-            </Col>
-          </Row>
-          <Row className="mb-4">
-            <div className="position-relative">
-              <img className="img-fluid ml-2  rounded-circle " src="/statics/person/2.jpeg" alt="" style={giftImg}/>
-              <span className="bg-success rounded-circle position-absolute" style={rightbarOnline}></span>
-            </div>
-            <Col md={10}>
-              <span style={{ fontWeight: 500 }}>Ann Doe</span>
-            </Col>
-          </Row>
+        {Users.map((u) => (
+          <Online key={u.id} user={u} />
+        ))} 
       </Container>
     </Col>
   )

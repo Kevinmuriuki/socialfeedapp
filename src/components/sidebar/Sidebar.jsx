@@ -1,10 +1,8 @@
 import { Button, Col } from 'react-bootstrap';
+import CloseFriend from '../closeFriend/CloseFriend';
+import { Users } from '../../dummyData'
 
-export default function Sidebar() {
-  const style = {
-    width: 40,
-    height: 40
-  } 
+export default function Sidebar() { 
   const sidebar = {
     margin: 0,
     height: 'calc(100vh - 100px)',
@@ -53,22 +51,9 @@ export default function Sidebar() {
       <Button size="lg" block className="mx-2" >Show More</Button>
       <hr className="mx-2 w-100" />
       <ul style={{listStyle: "none"}}>
-        <li className="mb-4">
-          <img src="/statics/person/2.jpeg" alt="" className="rounded-circle img-fluid" style={style} />
-          <span className="mx-2">Jane Doe</span>
-        </li>
-        <li className="mb-4">
-          <img src="/statics/person/2.jpeg" alt="" className="rounded-circle img-fluid" style={style} />
-          <span className="mx-2">Jane Doe</span>
-        </li>
-        <li className="mb-4">
-          <img src="/statics/person/2.jpeg" alt="" className="rounded-circle img-fluid" style={style} />
-          <span className="mx-2">Jane Doe</span>
-        </li>
-        <li className="mb-4">
-          <img src="/statics/person/2.jpeg" alt="" className="rounded-circle img-fluid" style={style} />
-          <span className="mx-2">Jane Doe</span>
-        </li>
+        {Users.map((u) => (
+          <CloseFriend key={u.id} user={u} />
+        ))}
       </ul>
     </Col>
   )
